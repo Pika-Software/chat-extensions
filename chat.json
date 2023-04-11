@@ -1,0 +1,7 @@
+{
+    "name": "Chat Extensions",
+    "files": {
+        "lua/packages/chat_extensions/package.lua": "",
+        "lua/packages/chat_extensions/init.lua": ""
+    }
+}
