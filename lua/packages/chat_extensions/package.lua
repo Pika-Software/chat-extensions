@@ -1,4 +1,5 @@
 name = "Chat Extensions"
 main = "init.lua"
+isolation = false
 logger = false
-version = 1
+version = 2

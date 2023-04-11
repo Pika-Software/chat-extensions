@@ -1,4 +1,4 @@
-local packageName = gpm.Package:GetIdentifier()
+local packageName = "Chat Extensions"
 local functions = {}
 local commands = {}
 
