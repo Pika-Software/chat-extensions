@@ -1,8 +1,7 @@
-local packageName = "Chat Extensions"
-local functions = {}
-local commands = {}
-
-chat = chat or {}
+local chat = _G.chat
+if not chat then
+    chat = {}; _G.chat = chat
+end
 
 function chat.GetCommand( cmd )
     return functions[ cmd ]
@@ -34,6 +33,9 @@ local ipairs = ipairs
 local xpcall = xpcall
 local string = string
 local hook = hook
+
+local packageName = gpm.Package:GetIdentifier()
+local functions, commands = {}, {}
 
 if SERVER then
 
