@@ -1,3 +1,3 @@
 name = "chat-extensions"
 main = "init.lua"
-version = 3
+version = 000100

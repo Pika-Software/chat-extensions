@@ -3,9 +3,13 @@ if not chat then
     chat = {}; _G.chat = chat
 end
 
+local functions = {}
+
 function chat.GetCommand( cmd )
     return functions[ cmd ]
 end
+
+local commands = {}
 
 do
 
@@ -35,7 +39,6 @@ local string = string
 local hook = hook
 
 local packageName = gpm.Package:GetIdentifier()
-local functions, commands = {}, {}
 
 if SERVER then
 
