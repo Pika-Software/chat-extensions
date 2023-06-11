@@ -38,19 +38,19 @@ local xpcall = xpcall
 local string = string
 local hook = hook
 
-local packageName = gpm.Package:GetIdentifier()
+local networkMessage = gpm.Package:GetIdentifier()
 
 if SERVER then
 
-    util.AddNetworkString( packageName )
+    util.AddNetworkString( networkMessage )
 
     function chat.AddText( ... )
-        net.Start( packageName )
+        net.Start( networkMessage )
             net.WriteTable( {...} )
         net.Broadcast()
     end
 
-    hook.Add( "PlayerSay", packageName, function( ply, text, isTeam )
+    hook.Add( "PlayerSay", "ChatCommands", function( ply, text, isTeam )
         for _, cmd in ipairs( commands ) do
             if not string.StartsWith( text, cmd ) then continue end
 
@@ -79,7 +79,7 @@ if CLIENT then
         local net_ReadTable = net.ReadTable
         local unpack = unpack
 
-        net.Receive( packageName, function()
+        net.Receive( networkMessage, function()
             local tbl = net_ReadTable()
             if not tbl then return end
             chat.AddText( unpack( tbl ) )
@@ -87,7 +87,7 @@ if CLIENT then
 
     end
 
-    hook.Add( "OnPlayerChat", packageName, function( ply, text, isTeam, isDead )
+    hook.Add( "OnPlayerChat", "ChatCommands", function( ply, text, isTeam, isDead )
         for _, cmd in ipairs( commands ) do
             if not string.StartsWith( text, cmd ) then continue end
 
