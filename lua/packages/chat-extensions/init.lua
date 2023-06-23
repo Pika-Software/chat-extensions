@@ -50,7 +50,7 @@ if SERVER then
         net.Broadcast()
     end
 
-    hook.Add( "PlayerSay", "ChatCommands", function( ply, text, isTeam )
+    hook.Add( "PlayerSay", "ChatCommand", function( ply, text, isTeam )
         for _, cmd in ipairs( commands ) do
             if not string.StartsWith( text, cmd ) then continue end
 
@@ -87,7 +87,7 @@ if CLIENT then
 
     end
 
-    hook.Add( "OnPlayerChat", "ChatCommands", function( ply, text, isTeam, isDead )
+    hook.Add( "OnPlayerChat", "ChatCommand", function( ply, text, isTeam, isDead )
         for _, cmd in ipairs( commands ) do
             if not string.StartsWith( text, cmd ) then continue end
 
