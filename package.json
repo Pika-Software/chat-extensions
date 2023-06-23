@@ -1,7 +1,0 @@
-{
-    "name": "chat-extensions",
-    "files": {
-        "lua/packages/chat-extensions/package.lua": "https://raw.githubusercontent.com/Pika-Software/chat-extensions/master/lua/packages/chat-extensions/package.lua",
-        "lua/packages/chat-extensions/init.lua": "https://raw.githubusercontent.com/Pika-Software/chat-extensions/master/lua/packages/chat-extensions/init.lua"
-    }
-}
