@@ -53,13 +53,13 @@ if SERVER then
             local result = hook.Run( "ChatCommand", ply, command, args, argStr, isTeam )
             if result == false then return "" end
 
-            local func = functions[ command ]
+            local func = Functions[ command ]
             if not func then return "" end
 
             local ok, result = xpcall( func, ErrorNoHaltWithStack, ply, command, args, argStr, isTeam )
             if not ok or not result then return "" end
 
-            return ""
+            return result
         end
     end )
 
@@ -80,12 +80,12 @@ hook.Add( "OnPlayerChat", "Chat Commands", function( ply, text, isTeam, isDead )
         local result = hook.Run( "ChatCommand", ply, command, args, argStr, isTeam )
         if result == false then return true end
 
-        local func = functions[ command ]
+        local func = Functions[ command ]
         if not func then return true end
 
         local ok, result = xpcall( func, ErrorNoHaltWithStack, ply, command, args, argStr, isTeam )
         if not ok or not result then return true end
 
-        return true
+        return result
     end
 end )
