@@ -18,8 +18,13 @@ end
 
 module( "chat" )
 
-Functions = {}
-Commands = {}
+if type( Functions ) ~= "table" then
+    Functions = {}
+end
+
+if type( Commands ) ~= "table" then
+    Commands = {}
+end
 
 function GetCommand( command )
     return Functions[ command ]
